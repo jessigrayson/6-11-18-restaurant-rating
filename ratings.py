@@ -25,29 +25,24 @@ def print_sorted_dict(restaurant_rating_dict):
         )
 
 
-def user_add_ratings(restaurant_rating_dict):
+def run_program(filename):
+
+    restaurant_rating_dict = change_to_dictionary(filename)
+
     want_to_add = True
 
     while want_to_add:
-        new_resturant = input("What restaurant do you want to add? ")
-        new_resturant_score = input("Enter the rating for your restaurant: ")
+        answer = input("Do you want to add a resturant score? (Y/N): ")
 
+        if answer == "Y":
+            new_resturant = input("What restaurant do you want to add? ")
+            new_resturant_score = input("Enter a rating for your restaurant: ")
+            restaurant_rating_dict[new_resturant] = new_resturant_score
 
-
-    restaurant_rating_dict[new_resturant] = restaurant_rating_dict.get(new_resturant, new_resturant_score)
+        else:
+            want_to_add = False
 
     print_sorted_dict(restaurant_rating_dict)
 
-def run_program(filename)
-    
-    print_sorted_dict(change_to_dictionary("scores.txt"))
-    user_add_ratings(restaurant_rating_dict)
-    
-    answer = input("Do you want to add another/new_resturant_score? (Y/N): ")
-    
-    if answer is "Y":
-        want_to_add = True
-    else:
-        False
 
 run_program("scores.txt")
